@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class App {
     public static void main(String[] args) throws Exception {
         /**
@@ -22,5 +25,14 @@ public class App {
          * Explanation: The only possible triplet does not sum up to zero.
          */
         System.out.println("Hello, World!");
+        Solution solution = new Solution();
+        int[] input = { -1, 0, 1, 2, -1, -4 };
+        List<List<Integer>> result = solution.threeSum(input);
+        System.out.println("The given input is: " + Arrays.toString(input)
+                + " and the triplets found (which satisfy the conditions defined in the problem statement) are: ");
+        result.stream()
+                .map(Object::toString)
+                .forEach(System.out::println);
+
     }
 }

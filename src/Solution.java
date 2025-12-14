@@ -21,10 +21,11 @@ public class Solution {
             /**
              * If nums[i] == nums[i - 1], we ignore it.
              */
-            if (i == 0 && nums[i] != nums[i - 1]) {
+            if (i == 0 || nums[i] != nums[i - 1]) {
                 /**
                  * calling twoSum()
                  */
+                twoSum(nums, i, result);
             }
         }
         return result;
@@ -35,7 +36,7 @@ public class Solution {
         /**
          * initializing left and right pointers
          */
-        int left = 0;
+        int left = i + 1;
         int right = nums.length - 1;
 
         /**
@@ -50,12 +51,12 @@ public class Solution {
              * if sum <0, increase the value of left pointer
              */
             if (sum < 0) {
-                left++;
+                ++left;
             } else if (sum > 0) {
                 /**
                  * if sum >0, decrease the value of right pointer
                  */
-                right--;
+                --right;
             } else {
                 // here the sum is 0
                 /**
@@ -66,7 +67,7 @@ public class Solution {
                  * update the left pointer until the two adjacent values of left are same or not
                  */
                 while (left < right && nums[left] != nums[left - 1]) {
-                    left++;
+                    ++left;
                 }
             }
 
